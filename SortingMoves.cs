@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 
 
-class SortingMoves {
+public class SortingMoves {
 
     (int, int, int)? FinalMove; // identify it when in the winner case we have 
     (int, int, int)? FinalBlockingMove; // identify it when the winner case of the oponent 

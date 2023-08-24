@@ -26,7 +26,7 @@ class AIPlayer {
 // in a row, col, diagonal it forms part 
 
 
-class Minimax {
+public class Minimax {
 
     private int bestMoveZ = 0;
     private int bestMoveX = 0;
@@ -69,7 +69,8 @@ class Minimax {
 
         List<int> scores = new List<int>();
 
-        List<(int, int, int)> freeSquares = sorting.getSortList(matrix, depth, getFreeSquares(matrix),  out (int a, int b, int c)? lastMove);
+       	List<(int, int, int)> freeSquares = sorting.getSortList(matrix, depth, 
+Minimax.getFreeSquares(matrix),  out (int a, int b, int c)? lastMove);
         if (lastMove != null && depth == 0) {
             (bestMoveZ, bestMoveX, bestMoveY) = (lastMove.Value.a, lastMove.Value.b, lastMove.Value.c);
             return 0;
@@ -159,7 +160,7 @@ class Minimax {
         return 0;
     }
 
-    List<(int, int, int)>  getFreeSquares(int[,,] matrix) {
+    public static List<(int, int, int)>  getFreeSquares(int[,,] matrix) {
 
         List<(int, int, int)> freeSquares = new List<(int, int, int)>();
 

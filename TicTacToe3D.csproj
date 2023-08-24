@@ -6,6 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+<PropertyGroup>
+  <DefaultItemExcludes>$(DefaultItemExcludes);tests/**</DefaultItemExcludes>
+</PropertyGroup>
 
 </Project>
 
