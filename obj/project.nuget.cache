@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "bysMGYDOxJb8zAVFlWM1w5KZcyitJBxuCa87okNSwsHMYh8DKuSRx2w6dbYAZj9OgMGnRASZxvoI10Un3eKNsw==",
+  "success": true,
+  "projectFilePath": "/Users/angiegranda/Desktop/github/TicTacToe/TicTacToe3D/TicTacToe3D.csproj",
+  "expectedPackageFiles": [
+    "/Users/angiegranda/.nuget/packages/microsoft.netcore.app.ref/6.0.21/microsoft.netcore.app.ref.6.0.21.nupkg.sha512",
+    "/Users/angiegranda/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.21/microsoft.aspnetcore.app.ref.6.0.21.nupkg.sha512",
+    "/Users/angiegranda/.nuget/packages/microsoft.netcore.app.host.osx-arm64/6.0.21/microsoft.netcore.app.host.osx-arm64.6.0.21.nupkg.sha512"
+  ],
+  "logs": []
+}
