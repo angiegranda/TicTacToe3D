@@ -19,22 +19,26 @@ class Program {
                 break;
             }
             if (g.turn == 1) {
-                 WriteLine("Introduce level: ");
-                int matrix = int.Parse(ReadLine()!);
-                WriteLine("Introduce row: ");
-                int row = int.Parse(ReadLine()!);
-                WriteLine("Introduce column: ");
-                int col = int.Parse(ReadLine()!);
-                if (g.isLegal(matrix-1, row-1, col-1)) {
-                    WriteLine($"Move of {playerName}: ");
-                    g.move(matrix-1, row-1, col-1); //  knowing that the user will start with 1 
-                    WriteLine(g);
-                    if (g.Winner() == 1){
-                        break;
+                try{
+                     WriteLine("Introduce level: ");
+                    int matrix = int.Parse(ReadLine()!);
+                    WriteLine("Introduce row: ");
+                    int row = int.Parse(ReadLine()!);
+                    WriteLine("Introduce column: ");
+                    int col = int.Parse(ReadLine()!);
+                    if (g.isLegal(matrix-1, row-1, col-1)) {
+                        WriteLine($"Move of {playerName}: ");
+                        g.move(matrix-1, row-1, col-1); //  knowing that the user will start with 1 
+                        WriteLine(g);
+                        if (g.Winner() == 1){
+                            break;
+                        }
                     }
-                }
-                else {
-                    WriteLine("That square is ocuppied already, choose another one");
+                    else {
+                        WriteLine("That square is ocuppied already, choose another one");
+                    }
+                } catch (System.FormatException){
+                    WriteLine("Please enter a legal level-row-column input correctly");
                 }
             } 
             else { // turn of the computer 
