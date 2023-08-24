@@ -4,7 +4,7 @@ using static System.Console;
 
 
 
-class AIPlayer {
+public class AIPlayer {
 
     Minimax minimax = new Minimax();
 
@@ -15,16 +15,6 @@ class AIPlayer {
     }
 
 }
-
-// strategy for sorting the possible moves,
-// 1) get the free squares 
-// 2) with each free square, check the potentional for winning, always 1 and if in its row, col, diagonal 
-// it has more squares of its turn the ++ for each
-// we should have an option in case it is the only square left to fill then we automatically give it and stop any recursion
-// this should be in the first loop so if depth is 0. 
-// 3) additionally check the potential for blocking at any given square sum ++ for each square that has the opponent turn 
-// in a row, col, diagonal it forms part 
-
 
 public class Minimax {
 

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 // then it is  DRAW , but we should set a minimum number 
 // total number of cells are 216 if 200 are occupied then DRAW
 
-class Game {
+public class Game {
 
     const int size = 6; // svodova advice
 
