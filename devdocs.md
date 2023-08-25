@@ -32,7 +32,7 @@ There is a while (true) loop that will end when there is a winner or a tie. If t
 
 ## Game.cs
 
-Have the board[6,6,6], have a instance of the object CheckBoard() which will be called when a new legal move 
+It has the board[6,6,6], have a instance of the object CheckBoard() which will be called when a new legal move 
 is written in the board and it checks if it completes a row, column or diagonal so there will be a winner and the game ends. 
 
 #### Main Functions:
