@@ -26,7 +26,7 @@ Handle I/O
 #### Main Functions: 
 
 - ##### void Main() : have the intance of the objects of Game() AIPlayer() and writes in the [6,6,6] board the user input.
-There is a while (true) loop that will end when there is a winner or a tie. 
+There is a while (true) loop that will end when there is a winner or a tie. If the user makes a type while introducing the coordinates of the square, there is a catch System.FromatException, so the user can try again introducing the input. If the square is occupied then it will get a message informing about it and asking for a new input. 
 
 --------------------------------------------------------------------------------------------
 
