@@ -22,7 +22,6 @@ class Program {
             }
             if (g.turn == userTurn) {
                 try{
-
                     WriteLine($"It is {playerName} turn: ");
                     Write("Introduce matrix {1, 2, 3, 4, 5, 6}: ");
                     int matrix = int.Parse(ReadLine()!);
@@ -31,8 +30,7 @@ class Program {
                     Write("Introduce column {1, 2, 3, 4, 5, 6}: ");
                     int col = int.Parse(ReadLine()!);
 
-                    if (g.IsLegal(matrix-1, row-1, col-1)) {
-                        g.Move(matrix-1, row-1, col-1); //  knowing that the user will start with 1 
+                    if (g.Move(matrix-1, row-1, col-1)) {
                         if (g.Winner() is int currentWinner){
                             if (currentWinner == userTurn){
                                 break;
@@ -44,8 +42,10 @@ class Program {
                     }
                 } catch (System.FormatException){
                     WriteLine("Please enter a legal level-row-column input");
+                } catch (System.IndexOutOfRangeException) {
+                    WriteLine("Please introduce numbers in the range 1 to 6 inclusive");
                 }
-            } 
+            }
             else { // turn of the computer 
                 Write("It is the computer turn : ");
                 (int z, int x, int y) value = computer.BestMove(g.GetBoard);
@@ -56,8 +56,9 @@ class Program {
                         break;
                     }
                 }
+                WriteLine(g);
             }
-            WriteLine(g);
+           
         }
 
         // Once there is a winner 

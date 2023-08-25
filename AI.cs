@@ -22,7 +22,7 @@ public class AIPlayer {
 
 public class Minimax {
 
-    private int maxSquaresCount = 200; 
+    private int maxSquaresCount = 216; 
     private int maxDepth = 5; 
     private int dimention = 6;
     private int bestMoveZ;
@@ -142,9 +142,9 @@ public class Minimax {
         return index;
     }
 
-    private int GetScore(int currentTurn, int depth, int result){ // turn can be different in each recursion
-        if (result >= 0) {
-            return result == currentTurn ? maxSquaresCount - depth : -maxSquaresCount + depth;
+    private int GetScore(int currentTurn, int depth, int previousWinner){ // turn can be different in each recursion
+        if (previousWinner >= 0) {
+            return previousWinner == currentTurn ? maxSquaresCount - depth : -maxSquaresCount + depth;
         }
         return 0;
     }

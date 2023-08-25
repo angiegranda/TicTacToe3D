@@ -13,9 +13,9 @@ public class Game {
 
     public Game() {}
 
-    public int this[int z, int x, int y] { // indexer 
-        get => board[z, x, y];
-    }
+    // public int this[int z, int x, int y] { // indexer 
+    //     get => board[z, x, y];
+    // }
 
     public int? Winner() =>  (winner != 0) ? winner : null;  // COMMIT CHANGE FROM PRIVATE TO PUBLIC
 
