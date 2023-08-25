@@ -32,6 +32,9 @@ Any possible diagonal, row, column in which 6 tokens of the same player User-AI 
 "Introduce matrix {1, 2, 3, 4, 5, 6}: Number here
 "Introduce row {1, 2, 3, 4, 5, 6}:  ...
 "Introduce column {1, 2, 3, 4, 5, 6}: ...
+- If the user makes a typo, it will ask the coordinates again.
+- when the user has introduced the input square, there will be a sentence written after saying:
+"It is the computer turn : move is matrix: --, row: --, column: --", so the user can identify quickly the computer's more in a more advanced game. 
 - There are 216 squares to fill, if anyone has won by the moment it reaches 200 then the game will end in a tie.
 - if you wish to end the game click Ctrl+C.
 
