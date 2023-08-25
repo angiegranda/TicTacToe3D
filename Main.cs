@@ -22,16 +22,17 @@ class Program {
             }
             if (g.turn == userTurn) {
                 try{
-                     WriteLine("Introduce level: ");
+
+                    WriteLine($"It is {playerName} turn: ");
+                    Write("Introduce matrix {1, 2, 3, 4, 5, 6}: ");
                     int matrix = int.Parse(ReadLine()!);
-                    WriteLine("Introduce row: ");
+                    Write("Introduce row {1, 2, 3, 4, 5, 6}: ");
                     int row = int.Parse(ReadLine()!);
-                    WriteLine("Introduce column: ");
+                    Write("Introduce column {1, 2, 3, 4, 5, 6}: ");
                     int col = int.Parse(ReadLine()!);
+
                     if (g.IsLegal(matrix-1, row-1, col-1)) {
-                        WriteLine($"Move of {playerName}: ");
                         g.Move(matrix-1, row-1, col-1); //  knowing that the user will start with 1 
-                        WriteLine(g);
                         if (g.Winner() is int currentWinner){
                             if (currentWinner == userTurn){
                                 break;
@@ -39,23 +40,24 @@ class Program {
                         }
                     }
                     else {
-                        WriteLine("That square is ocuppied already, choose another one");
+                        WriteLine("That square is ocuppied already, choose again");
                     }
                 } catch (System.FormatException){
-                    WriteLine("Please enter a legal level-row-column input correctly");
+                    WriteLine("Please enter a legal level-row-column input");
                 }
             } 
             else { // turn of the computer 
-                WriteLine("Move of the computer: ");
+                Write("It is the computer turn : ");
                 (int z, int x, int y) value = computer.BestMove(g.GetBoard);
                 g.Move(value.z, value.x, value.y);
-                WriteLine(g);
+                WriteLine($"move is matrix: {value.z + 1}, row: {value.x + 1}, column :{value.y + 1}");
                 if (g.Winner() is int currentWinner) {
                     if (currentWinner == computerTurn){
                         break;
                     }
                 }
             }
+            WriteLine(g);
         }
 
         // Once there is a winner 
@@ -67,7 +69,7 @@ class Program {
             WriteLine("Computer has won!");
         }
         else {
-            WriteLine("Anyone won, game ended in tie");
+            WriteLine("Game ended in a tie");
         }
     }
 }

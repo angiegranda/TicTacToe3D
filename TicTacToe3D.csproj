@@ -5,6 +5,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RuntimeIdentifiers>win-x64;linux-x64;osx.13-x64;osx.13-arm64</RuntimeIdentifiers>
   </PropertyGroup>
 <PropertyGroup>
   <DefaultItemExcludes>$(DefaultItemExcludes);tests/**</DefaultItemExcludes>
