@@ -10,15 +10,17 @@ class Program {
         WriteLine("Welcome to TicTacToe game against the computer! ^.^");
         WriteLine("Introduce your name: ");
         string playerName = ReadLine()!;
+
+        int userTurn = 1;
+        int computerTurn = 2;
         Game g = new Game();
-        AIPlayer computer = new AIPlayer();
-        // created for keeping tack of how many ways it has been played
-        // could also be a variable outside 
+        AIPlayer computer = new AIPlayer(computerTurn);
+
         while (true) { 
-            if (g.tie()){
+            if (g.Tie()){
                 break;
             }
-            if (g.turn == 1) {
+            if (g.turn == userTurn) {
                 try{
                      WriteLine("Introduce level: ");
                     int matrix = int.Parse(ReadLine()!);
@@ -26,12 +28,14 @@ class Program {
                     int row = int.Parse(ReadLine()!);
                     WriteLine("Introduce column: ");
                     int col = int.Parse(ReadLine()!);
-                    if (g.isLegal(matrix-1, row-1, col-1)) {
+                    if (g.IsLegal(matrix-1, row-1, col-1)) {
                         WriteLine($"Move of {playerName}: ");
-                        g.move(matrix-1, row-1, col-1); //  knowing that the user will start with 1 
+                        g.Move(matrix-1, row-1, col-1); //  knowing that the user will start with 1 
                         WriteLine(g);
-                        if (g.Winner() == 1){
-                            break;
+                        if (g.Winner() is int currentWinner){
+                            if (currentWinner == userTurn){
+                                break;
+                            }
                         }
                     }
                     else {
@@ -43,21 +47,23 @@ class Program {
             } 
             else { // turn of the computer 
                 WriteLine("Move of the computer: ");
-                (int z, int x, int y) value = computer.BestMove(g.getBoard);
-                g.move(value.z, value.x, value.y);
+                (int z, int x, int y) value = computer.BestMove(g.GetBoard);
+                g.Move(value.z, value.x, value.y);
                 WriteLine(g);
-                if (g.Winner() == 2) {
-                    break;
+                if (g.Winner() is int currentWinner) {
+                    if (currentWinner == computerTurn){
+                        break;
+                    }
                 }
             }
         }
 
         // Once there is a winner 
         WriteLine();
-        if (g.Winner() == 1) {
+        if (g.Winner() == userTurn) {
             WriteLine($"{playerName} has won! ");
         }
-        else if (g.Winner() == 2) {
+        else if (g.Winner() == computerTurn) {
             WriteLine("Computer has won!");
         }
         else {
