@@ -124,9 +124,15 @@ All the fucntions above has few things in common:
 - ##### private int DiagonalSameLevel(): Bool is true when checking (row-col) => (0,0), (1,1), (2,2)... and false => (0,5), (1, 4), (2, 3), (3, 4) in the same matrix. Notice that they dont have any square in common.
 - ##### private int DiagonalColumnTop_to_ColumnBotton() : Bool is true if we go => (5, k, 5), (4, k, 4), (3, k, 3), (2, k, 2), (1, k, 1) and (0, k, 0)  and false if we go => (0, k, 5), (1, k, 4), (2, k, 3), (3, k, 2), (4, k, 1), (5, k, 0), both k is the same row value.
 - ##### private int DiagonalRowTop_to_RowBotton() : Bool is true if we go => (0, 0, y), (1, 1, y), (2, 2, y)... and false if we go => (5, 0, y), (4, 1, y), (3, 2, y), (2, 3, y)...
-- ##### private int DiagonalBothDirectionsfrom05() : Bool true if we go (0, 0, 5), (1, 1, 4), (2, 2, 3)...
-and 
+- ##### private int DiagonalBothDirectionsfrom05() : Bool true if we go (0, 0, 5), (1, 1, 4), (2, 2, 3)... and false if (0, 5, 0), (1, 4, 1), (2, 3, 2)...
+- ##### private int DiagonalBothDirectionsfrom00() : Bool true if we go (0, 0, 0), (1, 1, 1)... and false if we go (0, 0, 5), (1, 1, 4), (2, 2, 3)...
+- ##### private int CheckRowCol() : checking the row, column in the same matrix where that coordinate is located and the column betweent dimensions. This one is always checked since it is basic.
+- ##### private int CheckAllDiagonals() : calls all the other diagonal functions and collect the scores each one returns.
 
-- ##### private int DiagonalBothDirectionsfrom00() : Bool true if we go ()
+-------------------------------------------------------------------------------------------
+
+## Tests/UniTest1.cs
+
+### [Click here for information of Unitest](https://github.com/angiegranda/TicTacToe3D/blob/main/manualTests.md)
 
 
