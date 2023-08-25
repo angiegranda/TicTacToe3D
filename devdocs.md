@@ -66,7 +66,7 @@ It has many private variables. Maximum depth in the recursion of alpha beta prun
 - ##### Constructor Minimax() : initialized SortingMoves and CheckBoard instances.
 - ##### public (int, int, int) GetBestMove(int[,,] board, int turn) : it is called by the AI player, initialized the BestMove(Z/X/Y) variables to 0 and call the AlphaBetaPruning() function to modify BestMove(Z/X/Y). 
 - ##### private int AlphaBetaPruning() :It takes as parameters: board, turn, true, depth, alpha, beta, previous coordinate in the recusion z, x, y set to -1 if none is provided. In each layer of depth the maximaxing bool and turn int is exchange to the opponent, so we create a tree of sequencial moves.
-##### We are maximizing for the current player and minimizing for the opponent. 
+##### We are maximizing for the current player and minimizing for the opponent. Alpha will start with the value int.MinValue and beta int.MaxValue.
 ##### Parts of this function 
 ##### If previous coordinates z, x, y are not -1, has been provided, then it checks if there was a winner in the previous recursion call in the turn of the opponent. If there was a winner, or all the board is completed, or the depth has reached the maximum depth set call the function GetScore().
 ##### Call GetFreeSquares() fuction to get a list of the current free squares and calls GetSortedList from the SortingMoves class to get the top 10 best moves (see in CheckBoard explanations), if the depth is 0 and there is a victory move then it sets BestMove(Z/X/Y) with those coordinates and exit the function without any recursion. 
