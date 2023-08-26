@@ -25,7 +25,7 @@ Handle I/O
 
 #### Main Functions: 
 
-- ##### void Main() : have the intance of the objects of Game() AIPlayer() and writes in the [6,6,6] board the user input.
+- **void Main()** : have the intance of the objects of Game() AIPlayer() and writes in the [6,6,6] board the user input.
 There is a while (true) loop that will end when there is a winner or a tie. If the user makes a type while introducing the coordinates of the square, there is a catch System.FromatException, so the user can try again introducing the input. If the square is occupied then it will get a message informing about it and asking for a new input. 
 
 --------------------------------------------------------------------------------------------
@@ -37,11 +37,11 @@ is written in the board and it checks if it completes a row, column or diagonal 
 
 #### Main Functions:
 
-- ##### public bool  Winner() :returns 1 or 2 if there is a winner else null.
--  ##### public bool Move(int z, int x, int y) : check if the board[z,x,y] is free, if it is not then return true and the user is asked to write again the input. If it is free (0), then writes the token of the player, and checks if it is a victory move (it has completed a row, column or diagonal), if it does changes Winner(). Increases the counter of the number of squares are occupied. 
-- ##### public bool Tie() : return true if the squares occupied 200 or more.
-- ##### public int[,,] GetBoard : returns the board.
-- ##### public override string ToString() : outputs the board with the current moves. It is called at the end of each while loop of Main.cs.
+- **public bool  Winner()** :returns 1 or 2 if there is a winner else null.
+- **public bool Move(int z, int x, int y)** : check if the board[z,x,y] is free, if it is not then return true and the user is asked to write again the input. If it is free (0), then writes the token of the player, and checks if it is a victory move (it has completed a row, column or diagonal), if it does changes Winner(). Increases the counter of the number of squares are occupied. 
+- **public bool Tie()** : return true if the squares occupied 200 or more.
+- **public int[,,] GetBoard** : returns the board.
+- **public override string ToString()** : outputs the board with the current moves. It is called at the end of each while loop of Main.cs.
 
 
 --------------------------------------------------------------------------------------------
