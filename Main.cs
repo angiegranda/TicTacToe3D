@@ -17,9 +17,13 @@ class Program {
         AIPlayer computer = new AIPlayer(computerTurn);
 
         while (true) { 
+
+            // Tie will be reached if there is no winner and there are 16 squares left, 216 are the total 
+
             if (g.Tie()){
                 break;
             }
+
             if (g.turn == userTurn) {
                 try{
                     WriteLine($"It is {playerName} turn: ");
@@ -46,7 +50,9 @@ class Program {
                     WriteLine("Please introduce numbers in the range 1 to 6 inclusive");
                 }
             }
-            else { // turn of the computer 
+
+            // turn of the computer 
+            else { 
                 Write("It is the computer turn : ");
                 (int z, int x, int y) value = computer.BestMove(g.GetBoard);
                 g.Move(value.z, value.x, value.y);
@@ -56,13 +62,14 @@ class Program {
                         break;
                     }
                 }
-                WriteLine(g);
+                WriteLine(g); // matrix will be printed when both user and computer have made a move
             }
            
         }
 
-        // Once there is a winner 
         WriteLine();
+        // There is a winner or a tie
+
         if (g.Winner() == userTurn) {
             WriteLine($"{playerName} has won! ");
         }

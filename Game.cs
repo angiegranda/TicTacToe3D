@@ -4,49 +4,49 @@ using System.Collections.Generic;
 
 public class Game {
 
+    const int TieFactor = 200;
     const int size = 6; 
     int[,,] board = new int[size,size,size];
-    public int turn = 1;  
-    public int winner = 0; 
-    int count = 0;
+    public int turn = 1;                      // start
+    public int winner = 0;                    // 0 if none
+    int count = 0;                            // # of squares occupied 
     CheckBoard check = new CheckBoard();
 
     public Game() {}
 
-    // public int this[int z, int x, int y] { // indexer 
-    //     get => board[z, x, y];
-    // }
+    public bool Tie() =>  count >= TieFactor; 
+
+    public int[,,] GetBoard => board;
 
     public int? Winner() =>  (winner != 0) ? winner : null;  // COMMIT CHANGE FROM PRIVATE TO PUBLIC
 
     public bool Move(int z, int x, int y) {
-
+        
+        // checks if is a legal move
         if (board[z, x, y] != 0) {
             return false;
         }
 
+        // writes the turn in the board
         board[z, x, y] = turn;
 
-        int opponent = (3-turn);
-        bool wonGame = false;
-        check.Eval(board, turn, z, x, y, out wonGame, out int winNumber);
-        if (wonGame){
+        // checks if current player has won
+        check.Eval(board, turn, z, x, y, out int winNumber);
+
+        if (turn == winNumber){
             winner = turn; 
         }
 
+        // updates next turn number and updates the counter
         turn = (turn == 1) ? 2 : 1; 
         count++;
+
         return true;
     }
 
-    public bool Tie() =>  count >= 200;
-
-    public int[,,] GetBoard => board;
-
-    public bool IsLegal(int z, int x, int y) => (board[z, x, y] == 0);
-
     public override string ToString() { 
-
+        
+        // writes the board 
         char[] output = {'-', 'X', 'O'};                  
         for (int z = (size-1); z >= 0; --z) {
             WriteLine($"Level {z+1}: "); 
