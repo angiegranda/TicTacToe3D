@@ -70,7 +70,7 @@ It has many private variables. Maximum depth in the recursion of alpha beta prun
 We are maximizing for the current player and minimizing for the opponent. Alpha will start with the value int.MinValue and beta int.MaxValue.
 
 Parts of this function 
-- If previous coordinates z, x, y are not -1, has been provided, then it checks if there was a winner in the previous recursion call in the turn of the opponent. If there was a winner, or all the board is completed, or the depth has reached the maximum depth set call the function GetScore().
+- If previous coordinates z, x, y are not -1, it has been provided, then it checks if there was a winner in the previous recursion call in the turn of the opponent. If there was a winner, it checks if it is the opponent win (where we return a negative value), or AI (it returns a possitive value).
 
 - Call GetFreeSquares() fuction to get a list of the current free squares and calls GetSortedList from the SortingMoves class to get the top 10 best moves (see in CheckBoard explanations), if the depth is 0 and there is a victory move then it sets BestMove(Z/X/Y) with those coordinates and exit the function without any recursion.
 
@@ -81,7 +81,6 @@ Parts of this function
 We keep track of the int outputs from AlphaBetaPruning in each layer of depth and add them to the scores list. Suppose we are in depth 3, we have new 10 best moves to explore from there, each one will be choosen and call next depth of AlphaBetaPruning() which will return a score for each of them, those scores are saved in the list, each score having the same index as the coordinates each respective coordinates in freeSquares(top10), when we are maximazing we wants the coordinates that has the highest score and minimazin the minimum, so we call the getMax(list, true/false) to get that index and set the BestMove(Z,X,Y). 
 
 - **private int GetMax(list, true/false)** : looks for the highest element in the list if true or the minimum if false. GetMin() GetMax() could be possible too but since they were the same code now they are unified. 
-- **private int GetScore(currentTurn, depth, previousWinner)** : if the previousWinner is the current player then we return a positive score, else a negative score. 
 - **public static GetFreeSquares()** : it does not belong to any instance of minimax, used in the Test1() of UniTest1.cs file. Gets the board (we may assume the matrix will be filled differently in each depth and for iteration of the AlphaBetaPruning()) and returns a list with the free squares. 
 - **private int OccupiedSquares()**: It is called to compared if the currentMatrix is completely filled or not, so it returns the current number of occupied cells by any player. 
 
