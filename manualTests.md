@@ -9,6 +9,7 @@
 **Time the all tests together took:**
 - If variable maxDepth = 5, it took 3 seconds
 - If variable maxDepth = 6; it took 15 seconds.
+I used a MacBook Air  M1 16GB RAM.
 
 ### Tests: 
 
