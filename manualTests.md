@@ -11,6 +11,11 @@
 - If variable maxDepth = 6; it took 15 seconds.
 I used a MacBook Air  M1 16GB RAM.
 
+```C#
+if (true) { return false; }
+```
+
+
 ### Tests: 
 
 - **BlockingTest()** : checks if the function GetSortList() from SortingMoves class (AlphaBetaPruning() needs it) returns the move to block the user from winning.
